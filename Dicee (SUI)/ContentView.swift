@@ -8,18 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var leftDicee: UIImage = #imageLiteral(resourceName: "DiceOne")
+    @State private var rightDicee: UIImage = #imageLiteral(resourceName: "DiceOne")
+    
     var body: some View {
         ZStack {
             HStack(alignment: .center) {
-                
                 Spacer()
                 
-                Image("DiceSix")
+                Image(uiImage: leftDicee)
                     .frame(width: 120, height: 120, alignment: .center)
                 
                 Spacer()
                 
-                Image("DiceOne")
+                Image(uiImage: rightDicee)
                     .frame(width: 120, height: 120,  alignment: .center)
                 
                 Spacer()
@@ -30,7 +32,8 @@ struct ContentView: View {
                     .frame(maxHeight: .infinity)
                 
                 Button("Roll") {
-                    
+                    leftDicee = #imageLiteral(resourceName: "DiceFour")
+                    rightDicee = #imageLiteral(resourceName: "DiceFour")
                 }
                 .font(.system(size: 30))
                 .foregroundColor(.white)
