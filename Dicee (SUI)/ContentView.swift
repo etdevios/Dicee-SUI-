@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    private let diceArray = [#imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix")]
     @State private var leftDicee: UIImage = #imageLiteral(resourceName: "DiceOne")
     @State private var rightDicee: UIImage = #imageLiteral(resourceName: "DiceOne")
     
@@ -32,8 +33,8 @@ struct ContentView: View {
                     .frame(maxHeight: .infinity)
                 
                 Button("Roll") {
-                    leftDicee = #imageLiteral(resourceName: "DiceFour")
-                    rightDicee = #imageLiteral(resourceName: "DiceFour")
+                    leftDicee = diceArray.randomElement() ?? UIImage()
+                    rightDicee = diceArray.randomElement() ?? UIImage()
                 }
                 .font(.system(size: 30))
                 .foregroundColor(.white)
